@@ -69,3 +69,41 @@ shellcheck health-check.sh
 - Language: Bash
 - Internship: Tecso
 
+## Bonus Challenges
+
+All three optional challenges have been implemented and tested successfully.
+
+### Multiple Service Monitoring
+
+The script supports checking multiple systemd services in a single execution.
+
+./health-check.sh systemd-journald cron
+### JSON Output
+
+The --json option generates machine-readable health reports.
+
+./health-check.sh --json systemd-journald cron
+### Colored Terminal Output
+
+- Green: OK
+- Red: FAIL
+- Colors are automatically disabled when output is redirected or piped.
+
+### Extended Testing Results
+
+| Test | Result |
+|------|--------|
+| Multiple services | Passed |
+| JSON output | Passed |
+| JSON validation | Passed |
+| Colored output | Passed |
+| Non-TTY output | Passed |
+| Multiple simultaneous failures | Passed |
+| Missing arguments | Passed |
+| Bash syntax validation | Passed |
+| ShellCheck | Passed |
+
+## Implementation Status
+
+All mandatory requirements and optional challenges are completed.
+
