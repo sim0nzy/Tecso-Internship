@@ -1,0 +1,37 @@
+name: Shell CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'linux/**'
+
+  pull_request:
+    branches: [main]
+    paths:
+      - 'linux/**'
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        run: find . -type f -name "*.sh" -print0 | xargs -0 -r shellcheck
+
+  smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test health-check exit code
+        run: |
+          set +e
+          bash linux/health-check.sh
+          code=$?
+          set -e
+          test "$code" -eq 2
+
