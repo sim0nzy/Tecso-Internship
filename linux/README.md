@@ -107,3 +107,7 @@ The --json option generates machine-readable health reports.
 
 All mandatory requirements and optional challenges are completed.
 
+
+## Continuous Integration
+
+Shell scripts are validated using GitHub Actions.

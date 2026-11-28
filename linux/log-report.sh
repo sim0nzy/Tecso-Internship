@@ -47,4 +47,3 @@ echo "| Failed Logins | IP Address |"
 echo "| --- | --- |"
 awk '$9 == 401 {print $1}' "$LOG" | sort | uniq -c | sort -rn | awk '$1 > 3 {printf "| %s | %s |\n", $1, $2}'
 
-echo $HOME
